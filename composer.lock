@@ -4,9 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b913082c76002ebfdea60c842c0b98a8",
-    "content-hash": "61de068edfdd8391ea06a40f45a7ddf4",
+    "hash": "64ce70225bbb44dc80d63d51a8688960",
+    "content-hash": "b5825e9e0b9829c79f6f45575c633ffc",
     "packages": [
+        {
+            "name": "anoxic/postgressive",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anoxic/postgressive.git",
+                "reference": "1c025a87a46355f784c1d24037238a2c86cf8805"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anoxic/postgressive/zipball/1c025a87a46355f784c1d24037238a2c86cf8805",
+                "reference": "1c025a87a46355f784c1d24037238a2c86cf8805",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Bad Sir Brian",
+                    "email": "brian@zick.io"
+                }
+            ],
+            "time": "2018-12-15 17:44:56"
+        },
         {
             "name": "nielssp/parco",
             "version": "v1.1.1",

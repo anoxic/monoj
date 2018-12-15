@@ -13,7 +13,8 @@
         "psr-4": { "Monoj\\": "spec/" }
     },
     "require": {
-        "nielssp/parco": "^1.1"
+        "nielssp/parco": "^1.1",
+        "anoxic/postgressive": "^0.1.0"
     },
     "require-dev": {
         "phpspec/phpspec": "^3.4"
