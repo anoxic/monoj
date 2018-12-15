@@ -6,5 +6,7 @@
             "email": "brian@zick.io"
         }
     ],
-    "require": {}
+    "require": {
+        "nielssp/parco": "^1.1"
+    }
 }

@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "09de3545e03402e3469bfb832f0642c2",
+    "content-hash": "630c382364670ddfb0dc94f602a2078c",
+    "packages": [
+        {
+            "name": "nielssp/parco",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nielssp/parco.git",
+                "reference": "2c1abd53c7204f8a1ba6c8293fcdbdcae8cf5035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nielssp/parco/zipball/2c1abd53c7204f8a1ba6c8293fcdbdcae8cf5035",
+                "reference": "2c1abd53c7204f8a1ba6c8293fcdbdcae8cf5035",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Parco\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Niels Sonnich Poulsen",
+                    "email": "niels@nielssp.dk",
+                    "homepage": "http://nielssp.dk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP parser combinators library.",
+            "homepage": "http://parco.nielssp.dk",
+            "keywords": [
+                "parsing"
+            ],
+            "time": "2016-02-13 21:57:31"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
