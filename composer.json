@@ -6,6 +6,12 @@
             "email": "brian@zick.io"
         }
     ],
+    "autoload": {
+        "psr-4": { "Monoj\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Monoj\\": "spec/" }
+    },
     "require": {
         "nielssp/parco": "^1.1"
     },
