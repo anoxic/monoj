@@ -9,18 +9,21 @@ class Formula
 {
     use RegexParsers;
 
+    const numberRegex = '/[-$]{0,2}\d+(\.\d+)?([eE][+-]?\d+)?/';
+    const wordRegex   = '/[a-zA-Z][a-zA-Z0-9_]*/';
+    // TODO: allow non-{whitespace,puncuation,digit}
+    // unicode and a whitelist of symbols?
+
     public function formulaNumber()
     {
-        return $this->regex('/[-$]{0,2}\d+(\.\d+)?([eE][+-]?\d+)?/')->map(function ($x) {
+        return $this->regex($this::numberRegex)->map(function ($x) {
             return floatval($x);
         });
     }
 
     public function formulaWord()
     {
-        // TODO: allow non-{whitespace,puncuation,digit}
-        // unicode and a whitelist of symbols?
-        return $this->regex('/[a-zA-Z][a-zA-Z0-9_]*/');
+        return $this->regex($this::wordRegex);
     }
 
     // TODO: does nothing
