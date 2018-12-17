@@ -28,14 +28,18 @@ class Formula
 
     public function formulaOperator()
     {
-        return $this->alt(
-            $this->elem('+'),
-            $this->elem('-'),
-            $this->elem('*'),
-            $this->elem('/'),
-            $this->elem('%'),
-            $this->elem('^'),
-            $this->elem('&')
+        return $this->seq(
+            $this->opt($this->whitespace),
+            $this->alt(
+                $this->elem('+'),
+                $this->elem('-'),
+                $this->elem('*'),
+                $this->elem('/'),
+                $this->elem('%'),
+                $this->elem('^'),
+                $this->elem('&')
+            ),
+            $this->opt($this->whitespace)
         );
     }
 
@@ -82,7 +86,7 @@ class Formula
 
 $decoder = new Formula();
 
-$json = '3+4-floor(5.5+max(0,2))';
+$json = '3 + 4-floor(5.5+max(0, 2))';
 
 try {
     var_dump($decoder($json));
