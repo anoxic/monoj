@@ -38,7 +38,18 @@ class Formula
                     $this->rep($this->char(',')->seqR($this->formulaExpr))
                 )
             )->seqL($this->char(')'))
-        );
+        )->map(function($x) {
+            $fn = $x[0];
+            switch ($x[0]) {
+                case 'floor': return new Token("number", floor($x[1][0]->value)); // XXX: use bc
+                case 'ceil':  return new Token("number", ceil($x[1][0]->value));  // XXX: use bc
+                case 'sqrt':  return new Token("number", bcsqrt($x[1][0]->value));
+
+                default:
+                    throw new \Exception("unknown function: $x");
+            }
+            return $x;
+        });
     }
 
     public function formulaOperator($o)
@@ -99,7 +110,7 @@ $formula = '併せて(2,10)'; // :-(
 $formula = 'הוסף(2,10)'; // :-(
 $formula = 'dodaća(2,10)'; // :-(
 $formula = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
-$formula = '3 + 4';
+$formula = 'sqrt(5) + floor(1.5)';
 
 try {
     var_export($decoder($formula));
