@@ -26,7 +26,6 @@ class Formula
         return $this->regex($this::wordRegex);
     }
 
-    // TODO: does nothing
     public function formulaOperator()
     {
         return $this->alt(
@@ -53,9 +52,20 @@ class Formula
         );
     }
 
+    public function formulaInfix()
+    {
+        return $this->chainl(
+            $this->alt($this->formulaNumber, $this->formulaFunction),
+            $this->formulaOperator->withResult(function ($left, $right) {
+                return [$left, $right];
+            })
+        );
+    }
+
     public function formulaExpr()
     {
         return $this->alt(
+            $this->formulaInfix,
             $this->formulaNumber,
             $this->formulaFunction
         );
@@ -72,7 +82,7 @@ class Formula
 
 $decoder = new Formula();
 
-$json = 'min(3,max(3,3))';
+$json = '3+4-floor(5.5+max(0,2))';
 
 try {
     var_dump($decoder($json));
