@@ -97,7 +97,7 @@ $json = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
 
 try {
     var_dump($decoder($json));
-} catch (\Parco\ParseException $e) {
+} catch (ParseException $e) {
     $lines = explode("\n", $json);
     $line = $e->getInputLine($lines);
     $column = $e->getInputColumn($lines);
