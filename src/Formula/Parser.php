@@ -14,33 +14,18 @@ class Formula
     // matches a letter followed by letters or numbers
     // doesn't seem to work with non-ascii on my machine rn
 
+    public $operators = ['+','-','*','/','%','^'];
+
     public function formulaNumber()
     {
         return $this->regex($this::numberRegex)->map(function ($x) {
-            return floatval($x);
+            return new Token("number", $x);
         });
     }
 
     public function formulaWord()
     {
         return $this->regex($this::wordRegex);
-    }
-
-    public function formulaOperator()
-    {
-        return $this->seq(
-            $this->opt($this->whitespace),
-            $this->alt(
-                $this->char('+'),
-                $this->char('-'),
-                $this->char('*'),
-                $this->char('/'),
-                $this->char('%'),
-                $this->char('^'),
-                $this->char('&')
-            ),
-            $this->opt($this->whitespace)
-        );
     }
 
     public function formulaFunction()
@@ -56,14 +41,34 @@ class Formula
         );
     }
 
+    public function formulaOperator($o)
+    {
+        return $this->seq(
+            $this->opt($this->whitespace),
+            $this->elem($o),
+            $this->opt($this->whitespace)
+        );
+    }
+
     public function formulaInfix()
     {
-        return $this->chainl(
-            $this->alt($this->formulaNumber, $this->formulaFunction),
-            $this->formulaOperator->withResult(function ($left, $right) {
-                return [$left, $right];
-            })
-        );
+        $return = [];
+        foreach ($this->operators as $o) {
+            $return[] = $this->chainl(
+                $this->alt($this->formulaNumber, $this->formulaFunction),
+                $this->formulaOperator($o)->withResult(function ($left, $right) use ($o) {
+                    switch ($o) {
+                        case '+': return bcadd($left->value, $right->value);
+                        case '-': return bcsub($left->value, $right->value);
+                        case '*': return bcmul($left->value, $right->value);
+                        case '/': return bcdiv($left->value, $right->value);
+                        case '%': return bcmod($left->value, $right->value);
+                        case '^': return bcpow($left->value, $right->value);
+                    }
+                })
+            );
+        }
+        return call_user_func_array([$this, "alt"], $return);
     }
 
     public function formulaExpr()
@@ -94,9 +99,10 @@ $formula = '併せて(2,10)'; // :-(
 $formula = 'הוסף(2,10)'; // :-(
 $formula = 'dodaća(2,10)'; // :-(
 $formula = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
+$formula = '3 + 4';
 
 try {
-    var_dump($decoder($formula));
+    var_export($decoder($formula));
 } catch (ParseException $e) {
     $lines = explode("\n", $formula);
     $line = $e->getInputLine($lines);
