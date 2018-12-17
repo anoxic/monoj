@@ -1,9 +1,9 @@
 <?php
-namespace Monoj;
+namespace Monoj\Formula;
 use Parco\Combinator\RegexParsers;
 use Parco\ParseException;
 
-include __DIR__ . '/../vendor/autoload.php';
+include __DIR__ . '/../../vendor/autoload.php';
 
 class Formula
 {
@@ -90,15 +90,15 @@ $decoder = new Formula();
 // not sure what the issue with unicode is.
 // tried a bare preg_match and it's still behaving
 // badly. might be the php version (5.6). 
-$json = '併せて(2,10)'; // :-(
-$json = 'הוסף(2,10)'; // :-(
-$json = 'dodaća(2,10)'; // :-(
-$json = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
+$formula = '併せて(2,10)'; // :-(
+$formula = 'הוסף(2,10)'; // :-(
+$formula = 'dodaća(2,10)'; // :-(
+$formula = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
 
 try {
-    var_dump($decoder($json));
+    var_dump($decoder($formula));
 } catch (ParseException $e) {
-    $lines = explode("\n", $json);
+    $lines = explode("\n", $formula);
     $line = $e->getInputLine($lines);
     $column = $e->getInputColumn($lines);
     echo 'Syntax Error: ' . $e->getMessage() . ' on line ' . $line . ' column ' . $column . PHP_EOL;
