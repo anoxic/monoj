@@ -13,6 +13,8 @@
         "psr-4": { "Monoj\\": "spec/" }
     },
     "require": {
+        "php": "^5.6",
+        "ext-bcmath": "*",
         "nielssp/parco": "^1.1",
         "anoxic/postgressive": "^0.1.0"
     },
