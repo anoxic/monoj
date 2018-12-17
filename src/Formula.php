@@ -10,7 +10,7 @@ class Formula
     use RegexParsers;
 
     const numberRegex = '/[-$]{0,2}\d+(\.\d+)?([eE][+-]?\d+)?/';
-    const wordRegex   = '/\p{L}[\p{L}0-9_]*/';
+    const wordRegex   = '/(*UTF8)\p{L}[\p{L}0-9_]*/';
     // matches a letter followed by letters or numbers
     // doesn't seem to work with non-ascii on my machine rn
 
