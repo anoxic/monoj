@@ -10,9 +10,9 @@ class Formula
     use RegexParsers;
 
     const numberRegex = '/[-$]{0,2}\d+(\.\d+)?([eE][+-]?\d+)?/';
-    const wordRegex   = '/[a-zA-Z][a-zA-Z0-9_]*/';
-    // TODO: allow non-{whitespace,puncuation,digit}
-    // unicode and a whitelist of symbols?
+    const wordRegex   = '/\p{L}[\p{L}0-9_]*/';
+    // matches a letter followed by letters or numbers
+    // doesn't seem to work with non-ascii on my machine rn
 
     public function formulaNumber()
     {
@@ -31,13 +31,13 @@ class Formula
         return $this->seq(
             $this->opt($this->whitespace),
             $this->alt(
-                $this->elem('+'),
-                $this->elem('-'),
-                $this->elem('*'),
-                $this->elem('/'),
-                $this->elem('%'),
-                $this->elem('^'),
-                $this->elem('&')
+                $this->char('+'),
+                $this->char('-'),
+                $this->char('*'),
+                $this->char('/'),
+                $this->char('%'),
+                $this->char('^'),
+                $this->char('&')
             ),
             $this->opt($this->whitespace)
         );
@@ -50,7 +50,7 @@ class Formula
             $this->char('(')->seqR(
                 $this->seq(
                     $this->formulaExpr,
-                    $this->rep($this->elem(',')->seqR($this->formulaExpr))
+                    $this->rep($this->char(',')->seqR($this->formulaExpr))
                 )
             )->seqL($this->char(')'))
         );
@@ -86,7 +86,14 @@ class Formula
 
 $decoder = new Formula();
 
-$json = '3 + 4-floor(5.5+max(0, 2))';
+// somehow, i'm only able to match latin letters.
+// not sure what the issue with unicode is.
+// tried a bare preg_match and it's still behaving
+// badly. might be the php version (5.6). 
+$json = '併せて(2,10)'; // :-(
+$json = 'הוסף(2,10)'; // :-(
+$json = 'dodaća(2,10)'; // :-(
+$json = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
 
 try {
     var_dump($decoder($json));
