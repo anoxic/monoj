@@ -3,9 +3,7 @@ namespace Monoj\Formula;
 use Parco\Combinator\RegexParsers;
 use Parco\ParseException;
 
-include __DIR__ . '/../../vendor/autoload.php';
-
-class Formula
+class Parser
 {
     use RegexParsers;
 
@@ -100,27 +98,3 @@ class Formula
     }
 }
 
-$decoder = new Formula();
-
-// somehow, i'm only able to match latin letters.
-// not sure what the issue with unicode is.
-// tried a bare preg_match and it's still behaving
-// badly. might be the php version (5.6). 
-$formula = '併せて(2,10)'; // :-(
-$formula = 'הוסף(2,10)'; // :-(
-$formula = 'dodaća(2,10)'; // :-(
-$formula = '3 + 4-floor(5.5+max(0, 2)) * plus_1(5)'; // works
-$formula = 'sqrt(5) + floor(1.5)';
-
-try {
-    var_export($decoder($formula));
-} catch (ParseException $e) {
-    $lines = explode("\n", $formula);
-    $line = $e->getInputLine($lines);
-    $column = $e->getInputColumn($lines);
-    echo 'Syntax Error: ' . $e->getMessage() . ' on line ' . $line . ' column ' . $column . PHP_EOL;
-    if ($line > 0) {
-        echo $lines[$line - 1] . PHP_EOL;
-        echo str_repeat('-', $column - 1) . '^';
-    }
-}
