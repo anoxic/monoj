@@ -10,7 +10,8 @@ class ParserSpec extends ObjectBehavior
 {
     function it_does_basic_math()
     {
-
+        $this('1+1')->shouldEqual('2');
+        $this('3 * 1')->shouldEqual('3');
     }
 
     function it_is_initializable()
