@@ -1,16 +1,21 @@
 <?php
 
-namespace spec;
+namespace spec\Monoj\Formula;
 
-use Formula;
+use Monoj\Formula\Parser;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class FormulaSpec extends ObjectBehavior
+class ParserSpec extends ObjectBehavior
 {
+    function it_does_basic_math()
+    {
+
+    }
+
     function it_is_initializable()
     {
-        $this->shouldHaveType(Formula::class);
+        $this->shouldHaveType(Parser::class);
     }
 }
 
