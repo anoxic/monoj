@@ -8,6 +8,7 @@ class Parser
     use RegexParsers;
 
     const numberRegex = '/[-$]{0,2}\d+(\.\d+)?([eE][+-]?\d+)?/';
+    const opRegex     = '/(*UTF8)[\p{L}_%^\->=!#~\\\\\+-\/\*|]+/';
     const wordRegex   = '/(*UTF8)\p{L}[\p{L}0-9_]*/';
     // matches a letter followed by letters or numbers
     // doesn't seem to work with non-ascii on my machine rn
@@ -50,11 +51,11 @@ class Parser
         });
     }
 
-    public function formulaOperator($o)
+    public function formulaOperator()
     {
         return $this->seq(
             $this->opt($this->whitespace),
-            $this->elem($o),
+            $this->regex($this::opRegex),
             $this->opt($this->whitespace)
         );
     }
