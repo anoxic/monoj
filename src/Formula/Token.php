@@ -17,6 +17,6 @@ class Token implements Positional {
     
     public function __toString()
     {
-        return $this->type . '(' . $this->value . ')';
+        return "$this->type($this->value)";
     }
 }
