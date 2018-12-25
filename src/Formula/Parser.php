@@ -60,25 +60,31 @@ class Parser
         );
     }
 
+    public function mapInfix($m, $dex = "")
+    {
+        foreach ($m as $val) {
+            if ($val instanceof Token) {
+                echo($dex.$val."\n");
+            } elseif (is_array($val)) {
+                $dex .= ".";
+                $this->mapInfix($val, $dex);
+            }
+        }
+    }
+
     public function formulaInfix()
     {
-        $return = [];
-        foreach ($this->operators as $o) {
-            $return[] = $this->chainl(
-                $this->alt($this->formulaNumber, $this->formulaFunction),
-                $this->formulaOperator($o)->withResult(function ($left, $right) use ($o) {
-                    switch ($o) {
-                        case '+': return bcadd($left->value, $right->value);
-                        case '-': return bcsub($left->value, $right->value);
-                        case '*': return bcmul($left->value, $right->value);
-                        case '/': return bcdiv($left->value, $right->value);
-                        case '%': return bcmod($left->value, $right->value);
-                        case '^': return bcpow($left->value, $right->value);
-                    }
-                })
-            );
-        }
-        return call_user_func_array([$this, "alt"], $return);
+        $infixExpr = $this->alt($this->formulaNumber, $this->formulaFunction);
+        $infixOperator = $this->formulaOperator->map(function ($x) {
+            return new Token("operator", $x[1]);
+        });
+        return $this->seq(
+            $infixExpr,
+            $this->rep($this->seq($infixOperator, $infixExpr))
+        )->map(function($m) {
+            $this->mapInfix($m);
+            exit;
+        });
     }
 
     public function formulaExpr()
@@ -95,7 +101,7 @@ class Parser
      */
     public function __invoke($input)
     {
-        return $this->parseAll($this->formulaExpr, $input)->get();
+        return $this->parseAll($this->formulaInfix, $input)->get();
     }
 }
 
