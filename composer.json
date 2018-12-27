@@ -13,10 +13,10 @@
         "psr-4": { "Monoj\\": "spec/" }
     },
     "require": {
-        "php": "^5.6",
+        "php": ">=5.6,<8.0-DEV",
         "ext-bcmath": "*",
-        "nielssp/parco": "^1.1",
-        "anoxic/postgressive": "^0.1.0"
+        "nielssp/parco": ">=1.1",
+        "anoxic/postgressive": ">=0.1"
     },
     "require-dev": {
         "phpspec/phpspec": "^3.4"
