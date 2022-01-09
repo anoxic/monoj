@@ -1,0 +1,18 @@
+PLANNED SYNTAX
+
+name = expr            ; constants
+name(param) = expr     ; functions
+name(expr,expr)
+param + param = expr   ; operators
+expr + expr
+
+; optional dispatch fingerprinting:
+; `::' is basically a type operator
+
+add(x,y) :: number,number = expr
+param +++ param :: number,number = expr
+
+
+TESTING
+
+https://github.com/steos/php-quickcheck (requires php compiled with 64bit integers)
