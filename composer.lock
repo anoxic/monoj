@@ -1,28 +1,27 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "d2e88454d106c19110c14fdac340a9f2",
-    "content-hash": "81497d9866d85cd5406e3d01d42643cf",
+    "content-hash": "0c159cb479a4102649d0db631fe36b47",
     "packages": [
         {
             "name": "anoxic/postgressive",
-            "version": "0.1",
+            "version": "0.1.01",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anoxic/postgressive.git",
-                "reference": "1c025a87a46355f784c1d24037238a2c86cf8805"
+                "reference": "b50305bda6ac589879c4fdee6cf919a0388fbad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anoxic/postgressive/zipball/1c025a87a46355f784c1d24037238a2c86cf8805",
-                "reference": "1c025a87a46355f784c1d24037238a2c86cf8805",
+                "url": "https://api.github.com/repos/anoxic/postgressive/zipball/b50305bda6ac589879c4fdee6cf919a0388fbad3",
+                "reference": "b50305bda6ac589879c4fdee6cf919a0388fbad3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6"
+                "php": ">=5.6"
             },
             "type": "library",
             "autoload": {
@@ -37,7 +36,7 @@
                     "email": "brian@zick.io"
                 }
             ],
-            "time": "2018-12-15 17:44:56"
+            "time": "2018-12-27T09:00:33+00:00"
         },
         {
             "name": "nielssp/parco",
@@ -83,38 +82,38 @@
             "keywords": [
                 "parsing"
             ],
-            "time": "2016-02-13 21:57:31"
+            "time": "2016-02-13T21:57:31+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3,<8.0-DEV"
+                "php": "^7.1"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
+                "phpunit/phpunit": "^6.2.3",
+                "squizlabs/php_codesniffer": "^3.0.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -139,7 +138,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -193,33 +192,39 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11 18:02:19"
+            "time": "2017-09-11T18:02:19+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.3.2",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bf329f6c1aadea3299f08ee804682b7c45b326a2"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bf329f6c1aadea3299f08ee804682b7c45b326a2",
-                "reference": "bf329f6c1aadea3299f08ee804682b7c45b326a2",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0",
+                "php": "^7.0",
                 "phpdocumentor/reflection-common": "^1.0.0",
                 "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.4"
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": [
@@ -238,7 +243,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-10 14:09:06"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -285,7 +290,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14 14:27:02"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -323,7 +328,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2016-04-07 12:29:16"
+            "time": "2016-04-07T12:29:16+00:00"
         },
         {
             "name": "phpspec/phpspec",
@@ -405,7 +410,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-12-06 09:12:11"
+            "time": "2017-12-06T09:12:11+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -468,7 +473,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05 17:53:17"
+            "time": "2018-08-05T17:53:17+00:00"
         },
         {
             "name": "psr/log",
@@ -515,34 +520,34 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20 15:27:04"
+            "time": "2018-11-20T15:27:04+00:00"
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.4",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be"
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
-                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "sebastian/diff": "~1.2",
-                "sebastian/exporter": "~1.2 || ~2.0"
+                "php": "^7.1",
+                "sebastian/diff": "^3.0",
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -573,38 +578,39 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29 09:50:25"
+            "time": "2018-07-12T15:12:46+00:00"
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.3",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4"
+                "reference": "366541b989927187c4ca70490a35615d3fef2dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
-                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/366541b989927187c4ca70490a35615d3fef2dce",
+                "reference": "366541b989927187c4ca70490a35615d3fef2dce",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+                "phpunit/phpunit": "^7.0",
+                "symfony/process": "^2 || ^3.3 || ^4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -629,36 +635,39 @@
             "description": "Diff implementation",
             "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
-                "diff"
+                "diff",
+                "udiff",
+                "unidiff",
+                "unified diff"
             ],
-            "time": "2017-05-22 07:24:03"
+            "time": "2018-06-10T07:54:39+00:00"
         },
         {
             "name": "sebastian/exporter",
-            "version": "2.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4"
+                "reference": "234199f4528de6d12aaa58b612e98f7d36adb937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
-                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/234199f4528de6d12aaa58b612e98f7d36adb937",
+                "reference": "234199f4528de6d12aaa58b612e98f7d36adb937",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "sebastian/recursion-context": "~2.0"
+                "php": "^7.0",
+                "sebastian/recursion-context": "^3.0"
             },
             "require-dev": {
                 "ext-mbstring": "*",
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -698,32 +707,32 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-11-19 08:54:04"
+            "time": "2017-04-03T13:19:02+00:00"
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a"
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/2c3ba150cbec723aa057506e73a8d33bdb286c9a",
-                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -751,7 +760,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-11-19 07:33:16"
+            "time": "2017-03-03T06:23:57+00:00"
         },
         {
             "name": "symfony/console",
@@ -820,36 +829,36 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-26 12:48:07"
+            "time": "2018-11-26T12:48:07+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.20",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "a2233f555ddf55e5600f386fba7781cea1cb82d3"
+                "reference": "e0a2b92ee0b5b934f973d90c2f58e18af109d276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/a2233f555ddf55e5600f386fba7781cea1cb82d3",
-                "reference": "a2233f555ddf55e5600f386fba7781cea1cb82d3",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/e0a2b92ee0b5b934f973d90c2f58e18af109d276",
+                "reference": "e0a2b92ee0b5b934f973d90c2f58e18af109d276",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^7.1.3",
                 "psr/log": "~1.0"
             },
             "conflict": {
-                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+                "symfony/http-kernel": "<3.4"
             },
             "require-dev": {
-                "symfony/http-kernel": "~2.8|~3.0|~4.0"
+                "symfony/http-kernel": "~3.4|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -876,7 +885,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-27 12:43:10"
+            "time": "2018-11-28T18:24:18+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -939,7 +948,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-30 18:07:24"
+            "time": "2018-11-30T18:07:24+00:00"
         },
         {
             "name": "symfony/finder",
@@ -988,7 +997,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11 19:48:54"
+            "time": "2018-11-11T19:48:54+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1046,7 +1055,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06 14:22:27"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1105,7 +1114,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21 13:07:52"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/process",
@@ -1154,7 +1163,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-20 16:10:26"
+            "time": "2018-11-20T16:10:26+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1213,24 +1222,25 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11 19:48:54"
+            "time": "2018-11-11T19:48:54+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -1263,16 +1273,18 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29 19:49:41"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.6",
+        "php": ">=5.6,<8.0-DEV",
         "ext-bcmath": "*"
     },
     "platform-dev": []
