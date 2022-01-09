@@ -43,7 +43,6 @@ class Parser
                 case 'floor': return new Token("number", floor($x[1][0]->value)); // XXX: use bc
                 case 'ceil':  return new Token("number", ceil($x[1][0]->value));  // XXX: use bc
                 case 'sqrt':  return new Token("number", bcsqrt($x[1][0]->value));
-
                 default:
                     throw new \Exception("unknown function: $x");
             }
@@ -63,11 +62,14 @@ class Parser
     public function mapInfix($m, $dex = "")
     {
         foreach ($m as $val) {
+            //re-order to $val[1][0], $val[0], $val[1][1]
             if ($val instanceof Token) {
                 echo($dex.$val."\n");
             } elseif (is_array($val)) {
                 $dex .= ".";
                 $this->mapInfix($val, $dex);
+            } else {
+                echo "not token or array: $val";
             }
         }
     }
@@ -83,8 +85,34 @@ class Parser
             $this->rep($this->seq($infixOperator, $infixExpr))
         )->map(function($m) {
             $this->mapInfix($m);
-            exit;
+            //var_export($m);
+            //var_export([
+                //"operator" => $m[1][0][0]->value,
+                //"left" => $m[0]->value,
+                //"right" => $m[1][0][1]->value
+            //]);
+            //var_export(count($m[1]));
+            //exit;
         });
+        //$return = [];
+        //foreach ($this->operators as $o) {
+        //    $return[] = $this->chainl(
+        //        $this->alt($this->formulaNumber, $this->formulaFunction),
+        //        $this->formulaOperator($o)->withResult(function ($left, $right) use ($o) {
+        //            switch ($o) {
+        //                case '+': return bcadd($left->value, $right->value);
+        //                case '-': return bcsub($left->value, $right->value);
+        //                case '*': return bcmul($left->value, $right->value);
+        //                case '/': return bcdiv($left->value, $right->value);
+        //                case '%': return bcmod($left->value, $right->value);
+        //                case '^': return bcpow($left->value, $right->value);
+        //                default:
+        //                    throw new \Exception("unknown operator: $x");
+        //            }
+        //        })
+        //    );
+        //}
+        //return call_user_func_array([$this, "alt"], $return);
     }
 
     public function formulaExpr()
@@ -101,7 +129,7 @@ class Parser
      */
     public function __invoke($input)
     {
-        return $this->parseAll($this->formulaInfix, $input)->get();
+        return $this->parseAll($this->formulaExpr, $input)->get();
     }
 }
 
