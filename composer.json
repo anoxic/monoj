@@ -14,7 +14,7 @@
         "psr-4": { "Monoj\\": "spec/" }
     },
     "require": {
-        "php": ">=5.6,<8.0-DEV",
+        "php": ">=7.4",
         "ext-bcmath": "*",
         "nielssp/parco": ">=1.1",
         "anoxic/postgressive": ">=0.1"
