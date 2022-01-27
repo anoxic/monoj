@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d116e96d151b3cf770ab0509ca767c1d",
+    "content-hash": "d79dfa66d12374a2c1880fb441f3efc1",
     "packages": [
         {
             "name": "anoxic/postgressive",
@@ -366,16 +366,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "7.1.0",
+            "version": "dev-next",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "30dc06a0f20642d9589bb644fbcfcb1692828699"
+                "reference": "cdf80c4fdad2f90e48eb0de3d0692d24193c5c36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/30dc06a0f20642d9589bb644fbcfcb1692828699",
-                "reference": "30dc06a0f20642d9589bb644fbcfcb1692828699",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/cdf80c4fdad2f90e48eb0de3d0692d24193c5c36",
+                "reference": "cdf80c4fdad2f90e48eb0de3d0692d24193c5c36",
                 "shasum": ""
             },
             "require": {
@@ -385,11 +385,11 @@
                 "phpspec/php-diff": "^1.0.0",
                 "phpspec/prophecy": "^1.9",
                 "sebastian/exporter": "^3.0 || ^4.0",
-                "symfony/console": "^3.4 || ^4.4 || ^5.0",
-                "symfony/event-dispatcher": "^3.4 || ^4.4 || ^5.0",
-                "symfony/finder": "^3.4 || ^4.4 || ^5.0",
-                "symfony/process": "^3.4 || ^4.4 || ^5.0",
-                "symfony/yaml": "^3.4 || ^4.4 || ^5.0"
+                "symfony/console": "^4.4 || ^5.0",
+                "symfony/event-dispatcher": "^4.4 || ^5.0",
+                "symfony/finder": "^4.4 || ^5.0",
+                "symfony/process": "^4.4 || ^5.0",
+                "symfony/yaml": "^4.4 || ^5.0"
             },
             "conflict": {
                 "sebastian/comparator": "<1.2.4"
@@ -409,7 +409,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "7.1.x-dev"
+                    "dev-next": "8.0.x-dev"
                 }
             },
             "autoload": {
@@ -449,9 +449,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/phpspec/issues",
-                "source": "https://github.com/phpspec/phpspec/tree/7.1.0"
+                "source": "https://github.com/phpspec/phpspec/tree/next"
             },
-            "time": "2021-06-19T16:10:14+00:00"
+            "time": "2021-06-19T17:37:43+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2150,7 +2150,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpspec/phpspec": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
