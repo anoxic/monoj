@@ -20,6 +20,6 @@
         "anoxic/postgressive": ">=0.1"
     },
     "require-dev": {
-        "phpspec/phpspec": "^3.4"
+        "phpspec/phpspec": ">=7.1"
     }
 }
