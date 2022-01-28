@@ -84,35 +84,20 @@ class Parser
             $infixExpr,
             $this->rep($this->seq($infixOperator, $infixExpr))
         )->map(function($m) {
-            $this->mapInfix($m);
-            //var_export($m);
-            //var_export([
-                //"operator" => $m[1][0][0]->value,
-                //"left" => $m[0]->value,
-                //"right" => $m[1][0][1]->value
-            //]);
-            //var_export(count($m[1]));
-            //exit;
+            $operator = $m[1][0][0]->value;
+            $left = $m[0]->value;
+            $right = $m[1][0][1]->value;
+            switch ($operator) {
+                case '+': return bcadd($left, $right);
+                case '-': return bcsub($left, $right);
+                case '*': return bcmul($left, $right);
+                case '/': return bcdiv($left, $right);
+                case '%': return bcmod($left, $right);
+                case '^': return bcpow($left, $right);
+                default:
+                    throw new \Exception("unknown operator: $x");
+            }
         });
-        //$return = [];
-        //foreach ($this->operators as $o) {
-        //    $return[] = $this->chainl(
-        //        $this->alt($this->formulaNumber, $this->formulaFunction),
-        //        $this->formulaOperator($o)->withResult(function ($left, $right) use ($o) {
-        //            switch ($o) {
-        //                case '+': return bcadd($left->value, $right->value);
-        //                case '-': return bcsub($left->value, $right->value);
-        //                case '*': return bcmul($left->value, $right->value);
-        //                case '/': return bcdiv($left->value, $right->value);
-        //                case '%': return bcmod($left->value, $right->value);
-        //                case '^': return bcpow($left->value, $right->value);
-        //                default:
-        //                    throw new \Exception("unknown operator: $x");
-        //            }
-        //        })
-        //    );
-        //}
-        //return call_user_func_array([$this, "alt"], $return);
     }
 
     public function formulaExpr()
