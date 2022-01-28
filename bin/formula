@@ -9,7 +9,7 @@ $formula = file_get_contents($argc > 1 ? $argv[1] : "php://stdin");
 $decoder = new Parser();
 
 try {
-    var_export($decoder($formula));
+    echo $decoder($formula);
     echo "\n";
 } catch (ParseException $e) {
     $lines = explode("\n", $formula);
