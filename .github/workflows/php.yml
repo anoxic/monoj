@@ -1,24 +1,29 @@
-name: ubuntu-16.04
+name: test 1
 
 on:
   push:
     branches: [ mastro ]
+  release:
+    types: [created]
   pull_request:
-    branches: [ mastro ]
 
 jobs:
   build:
 
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04, ubuntu-latest]
-        php: [7.0, 7.4, 8.0]
+        os: [ubuntu-latest]
+        php: [7.3, 7.4, 8.0, 8.1]
         
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php }}
+          php-version: "${{ matrix.php }}"
 
     - name: Validate composer.json and composer.lock
       run: composer validate
